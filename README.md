@@ -25,7 +25,7 @@ SET @json = N'[
 	{"product_id": 5, "info": {"brand": "Jordan", "name": "Jumpman MVP"}, "price": 165}
 ]';
 ```
-[photo 1]()
+<img src="https://i.imgur.com/HiAokm0.png"/>
 
 2. Selects data from the json document and inputs it to a table "json_customer"
 ```SQL
@@ -37,7 +37,7 @@ FROM OPENJSON(@json) WITH (
 	shoe_name NVARCHAR(50) '$.info.name',
 	price INT '$.price');
 ```
-3. Returns a json document from a table "json_customer"
+3. Translates JSON_CUSTOMER table back to JSON format
 ```SQL
 SELECT product_id AS "$.product_id",
 	price AS "$.price",
@@ -46,4 +46,4 @@ SELECT product_id AS "$.product_id",
 FROM json_customer
 FOR JSON PATH;
 ```
-[photo 2]()
+<img src="https://i.imgur.com/zePjBx3.png"/>
